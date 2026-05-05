@@ -11,8 +11,8 @@ const admin = require("../middleware/admin");
 // ========== Joi Validations ==========
 const registerBodyValidation = joi.object({
   name: joi.object({
-    first: joi.string().min(2).max(255).required(),
-    last: joi.string().min(2).max(255).required(),
+    firstName: joi.string().min(2).max(255).required(),
+    lastName: joi.string().min(2).max(255).required(),
   }),
   phone: joi
     .string()
@@ -38,8 +38,8 @@ const loginBodyValidation = joi.object({
 
 const userBodyValidation = joi.object({
   name: joi.object({
-    first: joi.string().min(2).max(255).required(),
-    last: joi.string().min(2).max(255).required(),
+    firstName: joi.string().min(2).max(255).required(),
+    lastName: joi.string().min(2).max(255).required(),
   }),
   phone: joi
     .string()
@@ -49,7 +49,7 @@ const userBodyValidation = joi.object({
     state: joi.string().min(2).max(255).optional().allow(""),
     country: joi.string().min(2).max(255).required(),
     city: joi.string().min(2).max(255).optional().allow(""),
-    street: joi.string().min(2).max(255),
+    street: joi.string().min(2).max(255).optional().allow(""),
     houseNumber: joi.number().required().positive(),
     zip: joi.number().required().positive(),
   }),
